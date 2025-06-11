@@ -3,8 +3,9 @@
 
 ## Struktura
 
-- `assets/` – grafiki (zwierzaki, pokoje, ikony)
-- `pets/` – kod gry
-- `main.py` – punkt wejścia
+- `assets/` - grafiki (zwierzaki, pokoje, ikony)
+- `dosc/` - dokumentacja
+- `pets/` - kod gry
+- `main.py` - punkt wejścia
 
 
