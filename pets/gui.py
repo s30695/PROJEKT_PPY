@@ -9,7 +9,7 @@ from PyQt5.QtCore import Qt, QTimer
 from .controllers import PetController
 from .factory import AnimalFactory
 
-# mapowanie polskich nazw pokoi na pliki tła
+# mapowanie polskich nazw pokoi na pliki tla
 ROOM_FILES = {
     'Kuchnia':    'kitchen.png',
     'Łazienka':   'bathroom.png',
@@ -20,7 +20,7 @@ ROOM_FILES = {
 class PetSimulatorGUI(QWidget):
     def __init__(self):
         super().__init__()
-        # by odbierać zdarzenia klawiatury
+        #zdarzenia klawiatury
         self.setFocusPolicy(Qt.StrongFocus)
         self.ctrl = PetController()
         base = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
@@ -61,7 +61,7 @@ class PetSimulatorGUI(QWidget):
         self.menu_species_cb.addItems(['Pies', 'Kot', 'Królik', 'Chomik'])
         layout.addWidget(self.menu_species_cb)
 
-        # Podgląd avatara w menu
+        # avatar w menu
         self.menu_avatar = QLabel()
         self.menu_avatar.setFixedSize(100, 100)
         self.menu_avatar.setAlignment(Qt.AlignCenter)
@@ -75,7 +75,7 @@ class PetSimulatorGUI(QWidget):
         play_btn.clicked.connect(self.start_game)
         layout.addWidget(play_btn, alignment=Qt.AlignCenter)
 
-        # Aktualizacja avatara
+        # aktualizacja avatar
         self.menu_species_cb.currentIndexChanged.connect(self.update_menu_avatar)
         self.update_menu_avatar()
         return w
@@ -93,7 +93,7 @@ class PetSimulatorGUI(QWidget):
         layout = QVBoxLayout(w)
         layout.setSpacing(5)
 
-        # Nawigacja między pokojami
+        # nawigacja miedzy pokojami
         nav = QHBoxLayout()
         left_btn = QPushButton(); left_btn.setIcon(QIcon(os.path.join(self.assets_icons, 'arrow_left.png')))
         left_btn.clicked.connect(lambda: self.switch_room(-1))
@@ -107,7 +107,7 @@ class PetSimulatorGUI(QWidget):
         nav.addWidget(right_btn)
         layout.addLayout(nav)
 
-        # Podgląd pokoju (tło + avatar)
+        # tlo + avatar
         self.room_stack = QStackedWidget()
         self.icon_labels = {}
         for room in ['Kuchnia', 'Łazienka', 'Sala zabaw', 'Sypialnia']:
@@ -116,7 +116,7 @@ class PetSimulatorGUI(QWidget):
             vbox.setContentsMargins(0, 0, 0, 0)
             vbox.setSpacing(2)
 
-            # Tło i avatar warstwowo
+            # tlo i avatar warstwowo
             container = QWidget()
             container.setFixedHeight(300)
             grid = QGridLayout(container)
@@ -138,14 +138,12 @@ class PetSimulatorGUI(QWidget):
             self.room_stack.addWidget(page)
         layout.addWidget(self.room_stack)
 
-        # Imię zwierzaka
+        # zwierzak imie
         self.name_label = QLabel('', alignment=Qt.AlignCenter)
         self.name_label.setFont(QFont('Arial', 14, QFont.Bold))
         layout.addWidget(self.name_label)
-        # większy odstęp przed wskaźnikami
         layout.addSpacing(15)
 
-        # Wskaźniki stanu bliżej dolnej krawędzi
         layout.addStretch()
         stats = QHBoxLayout()
         stats.setSpacing(10)
@@ -155,7 +153,7 @@ class PetSimulatorGUI(QWidget):
         self.energy_label = QLabel('Energia: –'); stats.addWidget(self.energy_label)
         layout.addLayout(stats)
 
-        # Panel akcji
+        # panel akcji
         self.action_stack = QStackedWidget()
         for room in ['Kuchnia', 'Łazienka', 'Sala zabaw', 'Sypialnia']:
             page = QWidget()

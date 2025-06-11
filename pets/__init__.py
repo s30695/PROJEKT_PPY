@@ -1,7 +1,5 @@
 """
-pet_simulator — pakiet gry Symulator Zwierzaka.
-
-Zawiera modele zwierząt, fabrykę, kontroler i GUI.
+PPY - projekt s30695
 """
 
 __version__ = "0.1.0"

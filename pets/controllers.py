@@ -24,7 +24,6 @@ class PetController:
         self.pet.state.clamp()
 
     def tick(self):
-        """Symulacja upływu 1 sekundy: zmieniamy stany."""
         s = self.pet.state
         s.hunger      -= 1
         s.bored       -= 1
